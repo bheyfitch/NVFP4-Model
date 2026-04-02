@@ -1,8 +1,8 @@
-def BF16_to_NVFP4(vec: list[int]):
+def BF16_to_NVFP4 (bf16_list: list[int]):
     signs = []
     exps = []
     mans = []
-    for value in vec:                               # Extracts the sign, exponent, and mantissa values from each BF16 element in the block of 16.
+    for value in bf16_list:                               # Extracts the sign, exponent, and mantissa values from each BF16 element in the block of 16.
         signs.append((value >> 15) & 1)
         exps.append((value >> 7) & 0xFF)
         mans.append(value & 0x7F)
