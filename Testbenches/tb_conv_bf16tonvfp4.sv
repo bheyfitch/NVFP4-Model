@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_conv_bf16tomxfp;
+module tb_conv_bf16tonvfp4;
 
 //Inputs
 logic i_clk;
@@ -11,7 +11,7 @@ logic [3:0] o_mx_vec [16];
 logic [7:0] o_mx_exp;
 
 // Instantiate the Unit Under Test (UUT)
-conv_bf16tomxfp uut (
+conv_bf16tonvfp4 uut (
     .i_clk(i_clk),
     .i_bf16_vec(i_bf16_vec),
     .o_mx_vec(o_mx_vec),
