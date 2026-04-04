@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module tb_nvfp4_datapath_top;
+module tb_quantize_dot_datapath;
 
 // Inputs
 logic i_clk;

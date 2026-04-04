@@ -81,7 +81,7 @@ initial begin
 
     #200;
 
-    $finish;
+    $stop;
 end
 
 endmodule

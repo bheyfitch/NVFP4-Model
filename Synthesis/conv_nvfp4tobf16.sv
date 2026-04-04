@@ -6,9 +6,9 @@ module conv_nvfp4tobf16 #(
 )(
     input  logic i_clk,
 
-    input  logic [bit_width-1:0] i_mx_vec [k],
-    input  logic           [7:0] i_mx_exp,
-    output logic          [15:0] o_bf16_vec [k]
+    input  logic [bit_width-1:0] i_mx_vec [k],      // Input NVFP4 vector.
+    input  logic           [7:0] i_mx_exp,          // Shared exponent that was previously factored out during quantization.
+    output logic          [15:0] o_bf16_vec [k]     // Output BF16 vector.
 );
 
     genvar i;
@@ -33,7 +33,7 @@ module conv_nvfp4tobf16 #(
 
     always_comb begin
         for (int i = 0; i < k; i++) begin
-            p0_bf16_exps[i] = i_mx_exp + 8'd1 + {6'b0, p0_exps[i]};  // shared_exp + 2 - 3 + elem_exp
+            p0_bf16_exps[i] = i_mx_exp - 8'd1 + {6'b0, p0_exps[i]};  // shared_exp + 2 - 3 + elem_exp
         end
     end
 

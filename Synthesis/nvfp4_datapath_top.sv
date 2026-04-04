@@ -1,4 +1,4 @@
-module nvfp4_datapath_top (
+module quantize_dot_datapath (
     input logic i_clk,
     input logic signed [15:0] i_bf16_vec_a [16],
     input logic signed [15:0] i_bf16_vec_b [16],
